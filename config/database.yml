@@ -6,11 +6,14 @@ default: &default
   database: <%= ENV["DB_NAME"] %>
   username: <%= ENV["DB_USER"] %>
   password: <%= ENV["DB_PASSWORD"] %>
-  sslmode: <%= ENV.fetch("DB_SSLMODE", "require") %>
-  pool: 5
+  sslmode: <%= ENV.fetch("DB_SSLMODE", "disable") %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
 
 development:
   <<: *default
 
 test:
+  <<: *default
+
+production:
   <<: *default
