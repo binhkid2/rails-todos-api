@@ -87,4 +87,14 @@ Rails.application.configure do
   #
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+  # Allow all localhost variants
+config.hosts << /localhost/
+config.hosts << /127\.0\.0\.1/
+
+# Allow all subdomains of rubito.jp
+config.hosts << /\.rubito\.jp\z/
+
+# Allow all Vercel preview domains
+config.hosts << /\.vercel\.app\z/
+
 end

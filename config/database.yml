@@ -17,3 +17,13 @@ test:
 
 production:
   <<: *default
+
+cable:
+  <<: *default
+
+# Optional (Rails 8 may also look for these depending on enabled frameworks)
+cache:
+  <<: *default
+
+queue:
+  <<: *default

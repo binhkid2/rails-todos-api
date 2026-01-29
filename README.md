@@ -13,3 +13,17 @@ DB_PASSWORD=****
 DB_NAME=****
 DB_SSL=****
 ```
+
+### CORS fix
+Add these to config/environments/production.rb
+```
+# Allow all localhost variants
+config.hosts << /localhost/
+config.hosts << /127\.0\.0\.1/
+
+# Allow all subdomains of rubito.jp
+config.hosts << /\.rubito\.jp\z/
+
+# Allow all Vercel preview domains
+config.hosts << /\.vercel\.app\z/
+```
