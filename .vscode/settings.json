@@ -1,0 +1,12 @@
+{
+    "sqltools.connections": [
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "a",
+            "connectString": "postgresql://portfolio:Binh1234@162.43.15.117:5454/portfolio"
+        }
+    ]
+}
