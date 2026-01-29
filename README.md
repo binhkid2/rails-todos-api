@@ -15,7 +15,7 @@ DB_SSL=****
 ```
 
 ### CORS fix
-Add these to config/environments/production.rb
+Add these to config/environments/production.rb and config/environments/development.rb
 ```
 # Allow all localhost variants
 config.hosts << /localhost/
@@ -26,4 +26,22 @@ config.hosts << /\.rubito\.jp\z/
 
 # Allow all Vercel preview domains
 config.hosts << /\.vercel\.app\z/
+```
+add these to config/initializers/cors.rb
+```
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
+  allow do
+    origins(
+      /localhost:\d+/,
+      /\.rubito\.jp\z/,
+      /\.vercel\.app\z/
+    )
+
+    resource "*",
+      headers: :any,
+      methods: %i[get post put patch delete options head],
+      expose: %w[Authorization],
+      credentials: false
+  end
+end
 ```
